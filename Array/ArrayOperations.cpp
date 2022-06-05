@@ -30,7 +30,7 @@
 */
 
 
-// Question 1. Linear search (if found , return index else return -1)
+//  Linear search (if found , return index else return -1)
 // parameters : arr = array , n = size of arr , x = element to be searched
 
 int LinearSearch(int arr[],int n,int x ){
@@ -44,7 +44,7 @@ int LinearSearch(int arr[],int n,int x ){
 
 
 
-// Question 2. Insert Element at pos in the array
+//  Insert Element at pos in the array
 // parameters : arr = array , n = size of arr , x = element to be inserted,
 //  pos = position , cap=capacity of arr
 
@@ -64,7 +64,7 @@ int InsertElement(int arr[], int n, int x , int pos , int cap){
     }
 }
 
-// Question 2. Delete an elementx from the array
+// Delete an elementx from the array
 // parameters : arr = array , n = size of arr , x = element to be deleted
 
 int DeleteElement(int arr[], int n, int x){
@@ -74,25 +74,21 @@ int DeleteElement(int arr[], int n, int x){
             break;
         }
     }
-
     if(i==n){
         return -1;
     }
-
     for(int j=i;j<n-1;j++){
         arr[j]=arr[j+1];
     }
     arr[n-1]=0;
-    
    // print arr
     for(int k=0;k<n-1;k++){
         std::cout <<  arr[k];
     }  
-
 }
 
 
-// Question 4. Largest  element from the array
+// Largest  element from the array
 // parameters : arr = array , n = size of arr 
 
 int LargestElementIndex(int arr[], int n  ){
@@ -106,13 +102,13 @@ int LargestElementIndex(int arr[], int n  ){
     return max;
 }
 
+// Second  Largest  element from the array
+// parameters : arr = array , n = size of arr 
 
 int SecondLargestElementIndex(int arr[],int n){
 
  int largest=LargestElementIndex(arr,n);
-
  int res=-1;   
-
  for(int i=0;i<n;i++){
      if(arr[i]!=arr[largest]){
          if(res==-1){
@@ -123,10 +119,22 @@ int SecondLargestElementIndex(int arr[],int n){
          }
      }
  }
-
 return res;
-
 }
+
+
+// Check whether an array is sorted or not
+// parameters : arr = array , n = size of arr 
+
+int IsSorted(int arr[], int n){
+    for(int i=0;i<n;i++){
+        if(arr[i]>arr[i+1]){
+            return -1;
+        }
+    }
+    return 1;
+}
+
 
 int main(){
 
@@ -135,6 +143,8 @@ int main(){
     // std::cout << InsertElement(arr,9,5,2,10);
     // std::cout << DeleteElement(arr,9,2);
     // std::cout << LargestElementIndex(arr,9);
-    std::cout << SecondLargestElementIndex(arr,9);
+    // std::cout << SecondLargestElementIndex(arr,9);
+    std::cout << IsSorted(arr,9);
+
     return 0;
 }
