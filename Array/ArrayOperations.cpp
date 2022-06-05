@@ -43,10 +43,31 @@ int LinearSearch(int arr[],int n,int x ){
 }
 
 
+
+// Question 2. Insert Element at pos in the array
+// parameters : arr = array , n = size of arr , x = element to be inserted,
+//  pos = position , cap=capacity of arr
+
+int InsertElement(int arr[], int n, int x , int pos , int cap){
+    if(n==cap){
+        return -1;
+    }
+    int idx =pos-1;
+    for(int i =n-1;i>=idx;i--){
+        arr[i+1]=arr[i];
+    }
+    arr[idx]=x;
+
+    // print array 
+    for(int j=0;j<n;j++){
+        std::cout << arr[j];
+    }
+}
+
 int main(){
 
     int arr[]={1,2,3,4,5,6,7,8,9};
-    std::cout << LinearSearch(arr,10,5);
-
+    // std::cout << LinearSearch(arr,10,5);
+    std::cout << InsertElement(arr,9,5,2,10);
     return 0;
 }
