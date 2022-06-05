@@ -135,6 +135,24 @@ int IsSorted(int arr[], int n){
     return 1;
 }
 
+// reverse an array
+// parameter : arr=array , n = size of arr
+
+void reverse(int arr[], int n){
+    int low=0,high=n-1;
+    while(low<high){
+        int temp=arr[low];
+        arr[low]=arr[high];
+        arr[high]=temp;
+        low++;
+        high--;
+    }
+    // print arr
+    for(int j=0;j<n;j++){
+        std::cout << arr[j];
+    }
+}
+
 
 int main(){
 
@@ -144,7 +162,8 @@ int main(){
     // std::cout << DeleteElement(arr,9,2);
     // std::cout << LargestElementIndex(arr,9);
     // std::cout << SecondLargestElementIndex(arr,9);
-    std::cout << IsSorted(arr,9);
+    // std::cout << IsSorted(arr,9);
+    reverse(arr,9);
 
     return 0;
 }
