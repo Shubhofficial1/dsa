@@ -30,7 +30,23 @@
 */
 
 
+// Question 1. Linear search (if found , return index else return -1)
+// parameters : arr = array , n = size of arr , x = element to be searched
+
+int LinearSearch(int arr[],int n,int x ){
+    for(int i=0;i<n;i++){
+        if(arr[i]==x){
+            return i;
+        }
+    }
+    return -1;    
+}
+
 
 int main(){
-    std::cout << "Hello World";
+
+    int arr[]={1,2,3,4,5,6,7,8,9};
+    std::cout << LinearSearch(arr,10,5);
+
+    return 0;
 }
