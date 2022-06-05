@@ -64,10 +64,77 @@ int InsertElement(int arr[], int n, int x , int pos , int cap){
     }
 }
 
+// Question 2. Delete an elementx from the array
+// parameters : arr = array , n = size of arr , x = element to be deleted
+
+int DeleteElement(int arr[], int n, int x){
+    int i;
+    for(i=0;i<n;i++){
+        if(arr[i]==x){
+            break;
+        }
+    }
+
+    if(i==n){
+        return -1;
+    }
+
+    for(int j=i;j<n-1;j++){
+        arr[j]=arr[j+1];
+    }
+    arr[n-1]=0;
+    
+   // print arr
+    for(int k=0;k<n-1;k++){
+        std::cout <<  arr[k];
+    }  
+
+}
+
+
+// Question 4. Largest  element from the array
+// parameters : arr = array , n = size of arr 
+
+int LargestElementIndex(int arr[], int n  ){
+    int max=0;
+    int first=arr[0];
+    for(int i=1;i<n;i++){
+        if(max<arr[i]){
+            max=i;
+        }
+    }
+    return max;
+}
+
+
+int SecondLargestElementIndex(int arr[],int n){
+
+ int largest=LargestElementIndex(arr,n);
+
+ int res=-1;   
+
+ for(int i=0;i<n;i++){
+     if(arr[i]!=arr[largest]){
+         if(res==-1){
+             res=i;
+         }
+         else if(arr[i]>arr[res]){
+             res=i;
+         }
+     }
+ }
+
+return res;
+
+}
+
 int main(){
 
     int arr[]={1,2,3,4,5,6,7,8,9};
     // std::cout << LinearSearch(arr,10,5);
-    std::cout << InsertElement(arr,9,5,2,10);
+    // std::cout << InsertElement(arr,9,5,2,10);
+    // std::cout << DeleteElement(arr,9,2);
+    // std::cout << LargestElementIndex(arr,9);
+    std::cout << SecondLargestElementIndex(arr,9);
     return 0;
 }
