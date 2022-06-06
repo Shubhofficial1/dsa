@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+// Palindrome check
 
 int isPalindrome(string str)
 {
